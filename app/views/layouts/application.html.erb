@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>rBlog | <%= @page_title %></title>
+  <%= favicon_link_tag %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+
+  <nav class="navbar navbar-default>
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">rBLOG</a>
+        </div>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><%= link_to 'Home', root_path %></li>
+              <li><%= link_to 'About', about_path %></li>
+              <li><%= link_to 'Contact', contact_path %></li>
+            </ul>
+            <%#= render 'layouts/partials/elasticsearch' %>
+            <%= render 'layouts/partials/search' %>
+
+          </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+  <section>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-8'>
+
+<!-- Alerts & messages -->
+<% if flash[:notice] %>
+  <div class='alert alert-danger'><%= flash[:notice]%></div>
+  <% end %>
+<% if flash[:alert] %>
+  <div class='alert alert-danger'><%= flash[:alert]%></div>
+  <% end %>
+
+
+<%= yield %>
+
+
+       </div><!-- col-md-8 -->
+     <div class='col-md-4'>   
+
+      <%= render 'layouts/partials/sidebar' %>
+
+     </div><!-- col-md-4 -->
+    </div><!-- row -->
+  </div><!-- container -->
+</section>
+
+
+  <footer>
+      <%= render 'layouts/partials/footer' %>
+  </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+
+</body>
+</html>

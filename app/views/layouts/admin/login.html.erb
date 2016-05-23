@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rblog | LOGIN ADMIN | <%= @page_title %></title>
+    <%= stylesheet_link_tag 'admin/login', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+  <div class='container'>
+    <%=yield%>
+  </div>
+
+</body>
+</html>
