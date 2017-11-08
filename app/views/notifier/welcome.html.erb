@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Welcome <%= @user.name %></h1>
+    <p>
+      Thank you, you have successfully signed up to [coopeu.com] at<%= @url %>,
+      your username is: <%= @user.login %>.<br>
+    </p>
+    <p>
+      To login to the site, just follow this link: <%= @url %>.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+
+You got a new note from <%= message.from %>!
+<%= truncate(@note.body, length: 25) %>
+
+  </body>
+</html>
+

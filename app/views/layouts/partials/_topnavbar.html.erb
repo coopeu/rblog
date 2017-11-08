@@ -1,0 +1,38 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <%= link_to root_path, class:"navbar-brand",alt:"home" do %>
+        <%= image_tag('pala_pilota_xarxa_detall_gir_100x60.JPG', alt:'Barcelona Pàdel', height:'50px') %><%end%>&nbsp;
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="home">Home <span class="sr-only">Home</span></a></li>
+        <li><a href="posts">Blog</a></li>
+        <li><a href="players">Players</a></li>
+        <li><a href="matches">Matches</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Information<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Clubs</a></li>
+            <li><a href="#">Rules</a></li>
+            <li><a href="#">Levels</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Matchs</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Players</a></li>
+          </ul>
+        </li>
+      </ul>
+      <%#= render 'layouts/partials/search' %> 
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="about">About us</a></li>
+        <li><a href="contact">Contact us</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+

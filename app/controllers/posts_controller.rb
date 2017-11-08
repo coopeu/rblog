@@ -16,12 +16,13 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posts = Post.all
-    @users = User.all
-  	@post = Post.find(params[:id])
+    @post = Post.find(params[:id])
+    @comment = Comment.new(:post => @post)
+#   @posts = Post.all
+#   @users = User.all
   	@categories =Category.all
-  	@comment = Comment.new
-  	@comments = Comment.all
+#  	@comment = Comment.new
+#  	@comments = Comment.all
   end
 
 end

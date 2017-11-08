@@ -27,10 +27,6 @@
 		<%= f.text_field :name, class:'form-control' %>
 	</div>
 	<div class='form-group'>
-		<%= f.label :email %><br />
-		<%= f.text_field :email, class:'form-control' %>
-	</div>
-	<div class='form-group'>
 		<%= f.label :body %><br />
 		<%= f.text_area :body, class:'form-control' %>
 	</div>
@@ -39,4 +35,5 @@
 	</div>
 		<% end %>
   	</div><!-- well add-comment -->
+  	<%= link_to 'Back', posts_path, class:"btn btn-secundary right" %>  
  </div><!-- comments -->

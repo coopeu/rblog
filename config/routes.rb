@@ -4,6 +4,29 @@ Rails.application.routes.draw do
   get 'contacts/create'
   get 'about' => 'about#index'
 
+  get 'posts/index'
+  get 'posts/show'
+
+  resources :categories, :posts, :users, :comments
+  resources 'contacts', only: [:new, :create]
+
+  namespace :admin do 
+    resources  :posts, :categories, :users, :comments, :sessions
+  end
+
+  resources :users do
+    resources :posts, only: [:index, :show] do
+      resources :comments
+      end
+    end
+  resources :posts do
+  resources :comments
+  end 
+  
+
+  root 'posts#index'
+
+
   namespace :admin do
   get 'login' => 'sessions#new', :as => 'login'
   end
@@ -98,25 +121,5 @@ Rails.application.routes.draw do
   get 'posts/destroy'
   end
 
-  get 'posts/index'
-
-  get 'posts/show'
-
-
-  resources :posts, :categories, :users, :comments
-  resources 'contacts', only: [:new, :create]
-
-  namespace :admin do 
-    resources  :posts, :categories, :users, :comments, :sessions
-  end
-
-  resources :users do
-    resources :posts, only: [:index, :show] do
-      resources :comments
-      end
-    end
-
-
-  root 'posts#index'
 
   end
