@@ -20,6 +20,7 @@
   	<div class='well add-comment'>
   		<h2 class='page-header'>Add comment</h2>
   		<%= form_for([@post, @post.comments.build]) do |f| %>
+  			<!-- # {action: "create"} @post.comments.build]) do |f| %> -->
 	<!-- main form -->
 	<div class='form-group'>
 		<%= f.label :name %><br />

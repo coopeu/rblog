@@ -1,27 +1,28 @@
 <div id='posts-index'>
   <% if @posts.exists? %>
     <%# @posts.each_slice(2) do |post| %>
-    <% @posts.in_groups_of(2) do |post| %>
+    <% @posts.in_groups_of(2, false) do |post_array| %>
       <div class='row'>
-      <% @posts.each do |post| %>
+      <% for p in post_array %>
         <div class='col-md-6'>
           <div class='post'>
-          <%= image_tag post.image.url, width:'100%', height:'200px' %>
+          <%= image_tag p.image.url, width:'100%', height:'200px' %>
             <div class='post-content'>
-            <h3><%= post.title.truncate(30) %></h3>
-              <small>Posted by <%= post.user.name %> on <%= post.created_at.to_time.strftime('%B %e at %l:%M %p') %></small>
-              <%= raw post.body.truncate(300) %>              <%= link_to 'Read more', post_path(post), class:'button btm-primary'%>
+            <h3><%= p.title.truncate(30) %></h3>
+              <small>Posted by <%= @users.find(p.user_id).name %> on <%= p.created_at.to_time %></small>
+              <%= raw p.body.truncate(300) %>              
+              <%= link_to 'Read more', post_path(p), class:'button btm-primary'%>
             </div><!-- post-content -->
           </div><!-- post -->
 
         </div><!-- col-md-6 -->
-      <% end %>  
+      <% end %><!-- ./each posts -->  
       </div><!-- row -->
-    <% end %>
+    <% end %><!-- ./in groups of 2 -->
 
   <% else %>
   <p>No post yet</p>
-  <% end %>
-</div><!-- posts-index -->
+  <% end %><!-- ./posts.exists -->
+</div><!-- ./posts-index -->
 
 

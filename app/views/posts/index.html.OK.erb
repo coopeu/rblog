@@ -1,0 +1,15 @@
+
+
+<table class="table table-condensed">
+    <% @posts.in_groups_of(2, false) do |post_array| %>
+      <tr>
+        <% for p in post_array %>
+        <td>
+          <p><%= p.id %></p>
+          <p><%= p.name %></p>
+          <p><%= p.title %></p>
+        </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>

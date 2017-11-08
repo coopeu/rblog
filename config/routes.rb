@@ -110,9 +110,12 @@ Rails.application.routes.draw do
     resources  :posts, :categories, :users, :comments, :sessions
   end
 
-  resources :post do
-    resources :comments
-  end
+  resources :users do
+    resources :posts, only: [:index, :show] do
+      resources :comments
+      end
+    end
+
 
   root 'posts#index'
 
